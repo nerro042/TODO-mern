@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*primary*/
+    --Bright-Blue: 220, 98%, 61%;
+    --Check-Background: linear-gradient(
+      to right,
+      192,
+      100%,
+      67% to 280,
+      87%,
+      65%
+    );
+
+    /*light theme*/
+    --very-light-gray: 0, 0%, 98%;
+    --Very-Light-Grayish-Blue: 236, 33%, 92%;
+    --Light-Grayish-Blue: 233, 11%, 84%;
+    --Dark-Grayish-Blue: 236, 9%, 61%;
+    --Very-Dark-Grayish-Blue: 235, 19%, 35%;
+
+    /*dark theme*/
+    --Very-Dark-Blue: 235, 21%, 11%;
+    --Very-Dark-Desaturated-Blue: 235, 24%, 19%;
+    --Light-Grayish-Blue2: 234, 39%, 85%;
+    --Light-Grayish-Blue3/*(hover)*/: 236, 33%, 92%;
+    --Dark-Grayish-Blue2: 234, 11%, 52%;
+    --Very-Dark-Grayish-Blue2: 233, 1%, 38%;
+    --Very-Dark-Grayish-Blue3: 237, 14%, 26%;
+  }
+}
+
+body {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.check-bg {
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+.imaje1 {
+  background-image: url("./assets/images/bg-desktop-light.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
