@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const moment = require("moment");
 
 // @desc Register new user
 // @route POST /api/users
@@ -82,7 +83,32 @@ const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user);
 });
 
-//generate token
+// //generate token
+// const generateToken = (id) => {
+//   const expiresIn = "20d";
+
+//   // Check if the token is expired within a certain threshold
+//   const isExpired = (token) => {
+//     const expiration = jwt.decode(token).exp;
+//     const currentTimestamp = moment().unix();
+//     const expirationThreshold = 5; // seconds
+
+//     return expiration - currentTimestamp < expirationThreshold;
+//   };
+
+//   // Generate a new token if expired or create a new one
+//   const token = () => {
+//     const newToken = jwt.sign({ id }, process.env.JWT_SECRET, {
+//       expiresIn,
+//     });
+//     return newToken;
+//   };
+
+//   // Get the existing token or generate a new one
+//   const existingToken = getExistingToken(); // Implement this function to retrieve the existing token
+//   return isExpired(existingToken) ? token() : existingToken;
+// };
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "20d",

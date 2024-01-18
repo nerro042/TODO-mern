@@ -22,7 +22,7 @@ const GoalItem = ({ goal }) => {
 
   return (
     <div>
-      <div className="border-solid bg-vdark_db  flex items-center border-b-[2px] border-b-vdg_blue3 justify-center w-[380px] md:w-[450px] px-4 py-2 gap-3">
+      <div className="border-solid bg-white dark:bg-vdark_db border-b-gray-300 flex items-center border-b-[2px] dark:border-b-vdg_blue3 justify-center w-[380px] md:w-[450px] px-4 py-2 gap-3">
         {ticked ? (
           <div className="check-bg w-5 h-5 rounded-full flex items-center justify-center cursor-pointer">
             <img src={img} className="h-3 w-3" onClick={onClick} />

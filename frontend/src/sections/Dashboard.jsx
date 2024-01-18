@@ -56,7 +56,7 @@ const Dashboard = () => {
       </section>
       <GoalForm />
 
-      <section className="flex flex-col md:w-[450px] w-[380px] bg-vdark_db justify-center mx-auto rounded p-2 items-center">
+      <section className="flex flex-col md:w-[450px] w-[380px] bg-white shadow-2xl dark:bg-vdark_db justify-center mx-auto rounded p-2 items-center">
         {goals.length > 0 ? (
           <>
             {goals.map((goal) => (

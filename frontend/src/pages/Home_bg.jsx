@@ -1,14 +1,50 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
-import { useState } from "react";
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaRegMoon } from "react-icons/fa";
+import { GoSun } from "react-icons/go";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 
 const Home_bg = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const [user, setUser] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  const [dark, setDark] = useState(() => {
+    const storedTheme = localStorage.getItem("dark");
+    if (storedTheme) {
+      return storedTheme;
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    } else {
+      return "light";
+    }
+  });
+
+  // const handleThemeSwitch = () => {
+  //   setDark(dark === "dark" ? "light" : "dark");
+  // };
+
+  const handleThemeSwitch = () => {
+    const newTheme = dark === "dark" ? "light" : "dark";
+    setDark(newTheme);
+    localStorage.setItem("dark", newTheme);
+  };
+
+  useEffect(() => {
+    if (dark === "light") {
+      document.body.style.backgroundColor = "white";
+    } else {
+      document.body.style.backgroundColor = "";
+    }
+  }, [dark]);
+
+  useEffect(() => {
+    if (dark === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [dark]);
 
   const onLogOut = () => {
     dispatch(logout());
@@ -21,13 +57,13 @@ const Home_bg = () => {
   return (
     <div className="flex justify-between px-14 py-[30px] max-sm:px-[30px]">
       <div>
-        <NavLink
-          to={"/"}
-          className="text-2xl text-white font-bold tracking-[5px]"
-        >
-          TODO
-        </NavLink>
+        <h3 className="text-2xl text-white font-bold tracking-[5px]">TODO</h3>
       </div>
+
+      <button onClick={handleThemeSwitch} className="text-white text-xl">
+        {dark === "dark" ? <GoSun /> : <FaRegMoon />}
+      </button>
+
       <ul className="flex gap-3 text-white">
         {user ? (
           <li>
