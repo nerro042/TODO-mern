@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaSignInAlt, FaSignOutAlt, FaUser, FaRegMoon } from "react-icons/fa";
-import { GoSun } from "react-icons/go";
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaMoon } from "react-icons/fa";
+import { MdSunny } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
@@ -61,7 +61,7 @@ const Home_bg = () => {
       </div>
 
       <button onClick={handleThemeSwitch} className="text-white text-xl">
-        {dark === "dark" ? <GoSun /> : <FaRegMoon />}
+        {dark === "dark" ? <MdSunny /> : <FaMoon />}
       </button>
 
       <ul className="flex gap-3 text-white">

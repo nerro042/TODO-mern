@@ -93,7 +93,7 @@ const Register = () => {
               value={email}
               onChange={onChange}
               placeholder="Enter your email address"
-              className="w-full p-[10px] rounded-lg"
+              className="w-full p-[10px] shadow-lg rounded-lg"
             />
           </div>
 
@@ -105,7 +105,7 @@ const Register = () => {
               value={password}
               onChange={onChange}
               placeholder="Enter password"
-              className="w-full p-[10px] rounded-lg"
+              className="w-full p-[10px] shadow-lg rounded-lg"
             />
           </div>
 
@@ -117,14 +117,14 @@ const Register = () => {
               value={password2}
               onChange={onChange}
               placeholder="Confirm password"
-              className="w-full p-[10px] rounded-lg"
+              className="w-full p-[10px] shadow-lg rounded-lg"
             />
           </div>
 
           <div className="w-full p-[10px] text-blue-900 rounded-lg">
             <button
               type="submit"
-              className="check-bg py-[10px] px-[20px] text-[18px] cursor-pointer rounded-lg font-[700] w-full"
+              className="check-bg py-[10px] px-[20px] text-[18px] cursor-pointer shadow-lg rounded-lg font-[700] w-full"
             >
               Submit
             </button>

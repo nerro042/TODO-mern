@@ -5,6 +5,7 @@ const {
   setGoals,
   updateGoals,
   deleteGoals,
+  deleteAllGoals,
   updateTicked,
 } = require("../controllers/goalController");
 const { protect } = require("../middleware/authMiddleware");
@@ -15,5 +16,6 @@ router
   .patch(protect, updateGoals)
   .patch(protect, updateTicked)
   .delete(protect, deleteGoals);
+router.route("/").delete(protect, deleteAllGoals);
 
 module.exports = router;

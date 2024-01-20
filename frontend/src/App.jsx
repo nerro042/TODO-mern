@@ -10,16 +10,14 @@ function App() {
   return (
     <>
       <Router>
-        <div className="bg-red-500">
-          <div className="bg-imgd_d max-sm:bg-imgm_l h-[300px] w-full bg-cover bg-no-repeat bg-center">
-            <div className=" w-full max-w-[800px] my-[0] mx-auto">
-              <Home_bg />
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="login" element={<Login />} />
-                <Route path="register" element={<Register />} />
-              </Routes>
-            </div>
+        <div className="dark:bg-imgd_dd bg-imgd_d max-sm:bg-imgm_l max-sm:dark:bg-imgm_d h-[300px] w-full bg-cover bg-no-repeat bg-center">
+          <div className=" w-full max-w-[800px] my-[0] mx-auto">
+            <Home_bg />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Routes>
           </div>
         </div>
       </Router>

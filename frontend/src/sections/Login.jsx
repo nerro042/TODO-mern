@@ -87,14 +87,14 @@ const Login = () => {
               value={password}
               onChange={onChange}
               placeholder="Enter your password"
-              className="w-full p-[10px] rounded-lg"
+              className="w-full p-[10px] rounded-lg shadow-lg"
             />
           </div>
 
           <div className="w-full p-[10px] text-blue-900 rounded-lg">
             <button
               type="submit"
-              className="check-bg py-[10px] px-[20px] text-[18px] cursor-pointer rounded-lg font-[700] w-full"
+              className="check-bg py-[10px] px-[20px] text-[18px] cursor-pointer rounded-lg font-[700] w-full shadow-lg"
             >
               Submit
             </button>

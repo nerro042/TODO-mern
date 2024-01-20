@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getGoals, reset } from "../features/goals/goalSlice";
+import { useEffect, useRef, useState } from "react";
+import { getGoals, deleteAllGoal, reset } from "../features/goals/goalSlice";
 import GoalForm from "../pages/GoalForm";
 import GoalItem from "../pages/GoalItem";
 import Spinner from "../pages/Spinner";
@@ -10,10 +10,18 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onClick = () => {
-    setTicked((prevState) => !prevState);
-    // dispatch(updateTicked(goal._id));
+  const dragStart = (e) => {
+    dragItem.current = e.target.id;
   };
+
+  const dragEnter = (e) => {
+    dragOverItem.current = e.currentTarget.id;
+  };
+
+  // const onClick = () => {
+  //   setTicked((prevState) => !prevState);
+  //   // dispatch(updateTicked(goal._id));
+  // };
 
   const { user } = useSelector((state) => state.auth);
   const { goals, isLoading, isError, message } = useSelector(
@@ -56,11 +64,13 @@ const Dashboard = () => {
       </section>
       <GoalForm />
 
-      <section className="flex flex-col md:w-[450px] w-[380px] bg-white shadow-2xl dark:bg-vdark_db justify-center mx-auto rounded p-2 items-center">
+      <section className="flex flex-col md:w-[450px] w-[380px] bg-white shadow-lg dark:bg-vdark_db justify-center mx-auto rounded p-2 items-center">
         {goals.length > 0 ? (
           <>
             {goals.map((goal) => (
-              <GoalItem key={goal._id} goal={goal} />
+              <div>
+                <GoalItem key={goal._id} goal={goal} />
+              </div>
             ))}
           </>
         ) : (
@@ -70,9 +80,9 @@ const Dashboard = () => {
         )}
 
         {goals.length > 0 ? (
-          <div className="bg-vdark_db text-vdg_blue2 flex justify-between w-full text-[12px] font-bold py-2 max-sm:px-3">
-            <p>{goals.length} items left</p>
-            <div className="flex gap-3 max-sm:hidden">
+          <div className="dark:bg-vdark_db dark:text-vdg_blue2 text-gray-400 flex justify-between w-full text-[12px] font-bold py-2 max-sm:px-3 max-sm:align-center max-sm:justify-center">
+            <p className="max-sm:text-center">{goals.length} items left</p>
+            {/* <div className="flex gap-3 max-sm:hidden">
               <button className="hover:text-b_blue transition duration-300 ease-in-out">
                 All
               </button>
@@ -82,9 +92,12 @@ const Dashboard = () => {
               <button className="hover:text-b_blue transition duration-300 ease-in-out">
                 completed
               </button>
-            </div>
-            <button className="hover:text-b_blue transition duration-300 ease-in-out">
-              Clear Completed
+            </div> */}
+            <button
+              className="hover:text-b_blue transition duration-300 ease-in-out hidden sm:block"
+              onClick={() => dispatch(deleteAllGoal(user._id))}
+            >
+              Clear All
             </button>
           </div>
         ) : (
@@ -93,8 +106,14 @@ const Dashboard = () => {
       </section>
 
       {goals.length > 0 ? (
-        <div className=" bg-vdark_db text-dg_blue flex justify-center items-center gap-12 mx-auto rounded py-4 text-[14px] font-bold mt-5 w-[380px] sm:hidden">
-          <button className="hover:text-b_blue transition duration-300 ease-in-out">
+        <div className="box-shade dark:bg-vdark_db text-dg_blue flex justify-center items-center gap-12 mx-auto rounded py-4 text-[14px] font-bold mt-5 w-[380px] sm:hidden">
+          <button
+            className="hover:text-b_blue transition duration-300 ease-in-out"
+            onClick={() => dispatch(deleteAllGoal(user._id))}
+          >
+            Clear All
+          </button>
+          {/* <button className="hover:text-b_blue transition duration-300 ease-in-out">
             All
           </button>
           <button className="hover:text-b_blue transition duration-300 ease-in-out">
@@ -102,7 +121,7 @@ const Dashboard = () => {
           </button>
           <button className="hover:text-b_blue transition duration-300 ease-in-out">
             completed
-          </button>
+          </button> */}
         </div>
       ) : (
         <p>{""}</p>
@@ -110,7 +129,7 @@ const Dashboard = () => {
 
       {goals.length > 0 ? (
         <div className="text-center mt-7 text-vdg_blue2 font-semibold">
-          <p>Drag an drop to reorder list</p>
+          <p>Project by @Regex_dev</p>
         </div>
       ) : (
         <p>{""}</p>

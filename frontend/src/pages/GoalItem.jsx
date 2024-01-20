@@ -29,13 +29,13 @@ const GoalItem = ({ goal }) => {
           </div>
         ) : (
           <div
-            className="w-5 h-5 rounded-full bg-vdark_db flex items-center justify-center border-solid border-[1px] border-vdg_blue cursor-pointer"
+            className="w-5 h-5 rounded-full dark:bg-vdark_db flex items-center justify-center border-solid border-[1px] border-gray-300 dark:border-vdg_blue cursor-pointer"
             onClick={onClick}
           ></div>
         )}
 
         <div
-          className={`bg-vdark_db flex outline-none border-0 py-[6px] text-lg_blue2 font-semibold w-full ${
+          className={`dark:bg-vdark_db flex outline-none border-0 py-[6px] text-gray-500 dark:text-lg_blue2 font-semibold w-full ${
             ticked && "text-vdg_blue2"
           }`}
         >

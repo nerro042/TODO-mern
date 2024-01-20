@@ -112,10 +112,30 @@ const deleteGoals = asyncHandler(async (req, res) => {
   res.status(200).json({ id: req.params.id });
 });
 
+const deleteAllGoals = asyncHandler(async (req, res) => {
+  // Check for user
+  if (!req.user) {
+    res.status(400);
+    throw new Error("User not found");
+  }
+
+  // Delete all goals for the logged-in user
+  const deleteResult = await Goal.deleteMany({ user: req.user.id });
+
+  if (deleteResult.deletedCount === 0) {
+    // No goals were deleted, you may want to handle this case based on your requirements
+    res.status(404);
+    throw new Error("No goals found for the user");
+  }
+
+  res.status(200).json({ message: "All user goals deleted" });
+});
+
 module.exports = {
   getGoals,
   setGoals,
   updateGoals,
   deleteGoals,
+  deleteAllGoals,
   updateTicked,
 };
