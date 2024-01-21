@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/goals/";
+const API_URL = "https://todo-mern-egvh.onrender.com/api/goals/";
 
 //create new goal
 const createGoal = async (goalData, token) => {
