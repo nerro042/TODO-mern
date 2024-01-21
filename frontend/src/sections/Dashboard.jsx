@@ -28,6 +28,8 @@ const Dashboard = () => {
       navigate("/login");
     }
     dispatch(getGoals());
+
+    return () => {};
   }, [user, navigate, isError, message, dispatch]);
 
   const getTime = () => {
