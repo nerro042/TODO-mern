@@ -29,7 +29,7 @@ const Register = () => {
     }
 
     if (isSuccess || user) {
-      navigate("/login");
+      navigate("/dashboard");
     }
 
     dispatch(reset());
