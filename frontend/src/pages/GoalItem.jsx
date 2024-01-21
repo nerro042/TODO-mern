@@ -3,6 +3,7 @@ import img from "../../images/icon-check.svg";
 import { useDispatch } from "react-redux";
 import { updateTicked, deleteGoal } from "../features/goals/goalSlice";
 import { FaRegTrashAlt } from "react-icons/fa";
+import img2 from "../public/bg-desktop-dark.jpg";
 
 const GoalItem = ({ goal }) => {
   const initialTicked = localStorage.getItem(`ticked_${goal._id}`) === "true";

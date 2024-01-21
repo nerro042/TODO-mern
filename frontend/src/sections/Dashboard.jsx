@@ -10,14 +10,6 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const dragStart = (e) => {
-    dragItem.current = e.target.id;
-  };
-
-  const dragEnter = (e) => {
-    dragOverItem.current = e.currentTarget.id;
-  };
-
   // const onClick = () => {
   //   setTicked((prevState) => !prevState);
   //   // dispatch(updateTicked(goal._id));
