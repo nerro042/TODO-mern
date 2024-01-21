@@ -14,7 +14,7 @@ function App() {
           <div className=" w-full max-w-[800px] my-[0] mx-auto">
             <Home_bg />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
             </Routes>
