@@ -26,8 +26,6 @@ const Dashboard = () => {
     }
     if (!user) {
       navigate("/login");
-    } else {
-      navigate("/");
     }
     dispatch(getGoals());
 
