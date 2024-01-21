@@ -50,7 +50,7 @@ const Home_bg = () => {
     dispatch(logout());
     dispatch(reset());
 
-    navigate("/");
+    navigate("/login");
     localStorage.removeItem("user");
   };
 
