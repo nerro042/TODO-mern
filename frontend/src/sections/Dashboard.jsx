@@ -29,7 +29,9 @@ const Dashboard = () => {
     }
     dispatch(getGoals());
 
-    return () => {};
+    return () => {
+      dispatch(reset());
+    };
   }, [user, navigate, isError, message, dispatch]);
 
   const getTime = () => {
@@ -62,9 +64,7 @@ const Dashboard = () => {
         {goals.length > 0 ? (
           <>
             {goals.map((goal) => (
-              <div>
-                <GoalItem key={goal._id} goal={goal} />
-              </div>
+              <GoalItem key={goal._id} goal={goal} />
             ))}
           </>
         ) : (

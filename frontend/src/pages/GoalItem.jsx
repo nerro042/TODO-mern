@@ -42,10 +42,10 @@ const GoalItem = ({ goal }) => {
         >
           {ticked ? (
             <div className="relative inline-block">
-              <span className="relative z-20 transition duration-500">
+              <span className="relative opacity-[0.5] line-through z-20 transition duration-500">
                 {goal.text}
               </span>
-              <span className="absolute top-[60%] left-0 w-full h-0.5 bg-gray-500 transform -translate-y-1/2 z-30 transition duration-500"></span>
+              {/* <span className="absolute top-[60%] left-0 w-full h-0.5 bg-gray-500 transform -translate-y-1/2 z-30 transition duration-500"></span> */}
             </div>
           ) : (
             <p className="transition duration-500">{goal.text}</p>
